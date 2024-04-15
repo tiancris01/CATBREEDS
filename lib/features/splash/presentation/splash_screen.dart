@@ -14,6 +14,7 @@ class SplashScreen extends ConsumerWidget {
       context.go('/breeds');
     });
     return Scaffold(
+      //TODO: add catBreeds Text
       body: Center(
         child: Image.asset(
           AssetsToken.images.splashLoading.path,
