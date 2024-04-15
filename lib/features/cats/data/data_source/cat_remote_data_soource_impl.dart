@@ -1,16 +1,26 @@
 import 'package:cat_breeds/features/cats/data/data_source/cat_remote_data_source.dart';
 import 'package:cat_breeds/features/cats/data/models/cat_dto.dart';
-import 'package:dio/dio.dart';
+import 'package:cat_breeds/shared/data/remote/network_service.dart';
 
-class CatRemoteDataSoourceImpl implements CatRemoteDataSource {
-  final Dio _dio;
+class CatRemoteDataSourceImpl implements CatRemoteDataSource {
+  final NetworkService _networkService;
 
-  CatRemoteDataSoourceImpl({
-    required Dio dio,
-  }) : _dio = dio;
+  CatRemoteDataSourceImpl({
+    required NetworkService networkService,
+  }) : _networkService = networkService;
 
   @override
-  Future<List<CatDTO>> getCats() async {
-    return [];
+  Future<List<CatDTO>> getCats({required int limit}) async {
+    await Future.delayed(const Duration(seconds: 2));
+    final response = await _networkService.get(
+      path: '/breeds',
+      queryParameters: {
+        'limit': limit,
+      },
+    );
+    final List<dynamic> responseList = response.data;
+    final List<CatDTO> catDTO =
+        responseList.map((e) => CatDTO.fromJson(e)).toList();
+    return catDTO;
   }
 }

@@ -8,7 +8,7 @@ class CatEntity with _$CatEntity {
   const factory CatEntity({
     required String lifespan,
     required String country,
-    required String imageRef,
+    required String imageUrl,
     required String catBreed,
     required int intelligence,
     required int adaptability,

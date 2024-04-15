@@ -8,46 +8,17 @@ part 'cat_dto.g.dart';
 class CatDTO with _$CatDTO {
   const CatDTO._();
   const factory CatDTO({
-    int? rex,
-    int? lap,
-    int? rare,
-    String? id,
-    int? indoor,
     String? name,
-    int? natural,
-    int? grooming,
-    int? hairless,
-    int? alt_names,
     String? origin,
-    int? short_legs,
-    String? cfa_url,
-    int? energy_level,
-    int? intelligence,
-    int? social_needs,
-    int? vocalisation,
-    int? experimental,
     String? life_span,
-    int? adaptability,
-    int? dog_friendly,
-    int? health_issues,
-    int? shedding_level,
-    String? temperament,
     String? description,
-    int? child_friendly,
-    int? hypoallergenic,
-    WeigthEntity? weight,
-    int? suppressed_tail,
-    String? country_code,
-    int? affection_level,
-    String? vetstreet_url,
-    String? wikipedia_url,
-    String? country_codes,
-    int? stranger_friendly,
-    String? vcahospitals_url,
-    String? reference_image_id,
+    int? adaptability,
+    int? intelligence,
+    ImageUrl? image,
   }) = _CatDTO;
 
   factory CatDTO.fromJson(Map<String, dynamic> json) => _$CatDTOFromJson(json);
+
   CatDTO fromDomain(CatEntity entity) {
     return CatDTO(
       name: entity.catBreed,
@@ -56,7 +27,7 @@ class CatDTO with _$CatDTO {
       description: entity.description,
       adaptability: entity.adaptability,
       intelligence: entity.intelligence,
-      reference_image_id: entity.imageRef,
+      image: ImageUrl(entity.imageUrl),
     );
   }
 
@@ -68,19 +39,18 @@ class CatDTO with _$CatDTO {
       description: description ?? '',
       intelligence: intelligence ?? 0,
       adaptability: adaptability ?? 0,
-      imageRef: reference_image_id ?? '',
+      imageUrl: image?.url ?? '',
     );
   }
 }
 
 @freezed
-class WeigthEntity with _$WeigthEntity {
-  const WeigthEntity._();
-  const factory WeigthEntity(
-    String? metric,
-    String? imperial,
-  ) = _WeigthEntity;
+class ImageUrl with _$ImageUrl {
+  const ImageUrl._();
+  const factory ImageUrl(
+    String? url,
+  ) = _ImageUrl;
 
-  factory WeigthEntity.fromJson(Map<String, dynamic> json) =>
-      _$WeigthEntityFromJson(json);
+  factory ImageUrl.fromJson(Map<String, dynamic> json) =>
+      _$ImageUrlFromJson(json);
 }

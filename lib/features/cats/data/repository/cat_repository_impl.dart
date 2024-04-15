@@ -10,8 +10,10 @@ class CatRepositoryImpl implements CatRepository {
   }) : _remoteDataSource = remoteDataSource;
 
   @override
-  Future<List<CatEntity>> getCats() async {
-    final cats = await _remoteDataSource.getCats();
-    return cats.map((cat) => cat.toDomain()).toList();
+  Future<List<CatEntity>> getCats({required int limit}) async {
+    final response = await _remoteDataSource.getCats(limit: limit);
+    print(response);
+    final catEntity = response.map((e) => e.toDomain()).toList();
+    return catEntity;
   }
 }

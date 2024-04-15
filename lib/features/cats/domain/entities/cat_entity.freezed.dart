@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CatEntity {
   String get lifespan => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
-  String get imageRef => throw _privateConstructorUsedError;
+  String get imageUrl => throw _privateConstructorUsedError;
   String get catBreed => throw _privateConstructorUsedError;
   int get intelligence => throw _privateConstructorUsedError;
   int get adaptability => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $CatEntityCopyWith<$Res> {
   $Res call(
       {String lifespan,
       String country,
-      String imageRef,
+      String imageUrl,
       String catBreed,
       int intelligence,
       int adaptability,
@@ -59,7 +59,7 @@ class _$CatEntityCopyWithImpl<$Res, $Val extends CatEntity>
   $Res call({
     Object? lifespan = null,
     Object? country = null,
-    Object? imageRef = null,
+    Object? imageUrl = null,
     Object? catBreed = null,
     Object? intelligence = null,
     Object? adaptability = null,
@@ -74,9 +74,9 @@ class _$CatEntityCopyWithImpl<$Res, $Val extends CatEntity>
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
-      imageRef: null == imageRef
-          ? _value.imageRef
-          : imageRef // ignore: cast_nullable_to_non_nullable
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       catBreed: null == catBreed
           ? _value.catBreed
@@ -109,7 +109,7 @@ abstract class _$$CatEntityImplCopyWith<$Res>
   $Res call(
       {String lifespan,
       String country,
-      String imageRef,
+      String imageUrl,
       String catBreed,
       int intelligence,
       int adaptability,
@@ -129,7 +129,7 @@ class __$$CatEntityImplCopyWithImpl<$Res>
   $Res call({
     Object? lifespan = null,
     Object? country = null,
-    Object? imageRef = null,
+    Object? imageUrl = null,
     Object? catBreed = null,
     Object? intelligence = null,
     Object? adaptability = null,
@@ -144,9 +144,9 @@ class __$$CatEntityImplCopyWithImpl<$Res>
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
-      imageRef: null == imageRef
-          ? _value.imageRef
-          : imageRef // ignore: cast_nullable_to_non_nullable
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
       catBreed: null == catBreed
           ? _value.catBreed
@@ -174,7 +174,7 @@ class _$CatEntityImpl extends _CatEntity {
   const _$CatEntityImpl(
       {required this.lifespan,
       required this.country,
-      required this.imageRef,
+      required this.imageUrl,
       required this.catBreed,
       required this.intelligence,
       required this.adaptability,
@@ -186,7 +186,7 @@ class _$CatEntityImpl extends _CatEntity {
   @override
   final String country;
   @override
-  final String imageRef;
+  final String imageUrl;
   @override
   final String catBreed;
   @override
@@ -198,7 +198,7 @@ class _$CatEntityImpl extends _CatEntity {
 
   @override
   String toString() {
-    return 'CatEntity(lifespan: $lifespan, country: $country, imageRef: $imageRef, catBreed: $catBreed, intelligence: $intelligence, adaptability: $adaptability, description: $description)';
+    return 'CatEntity(lifespan: $lifespan, country: $country, imageUrl: $imageUrl, catBreed: $catBreed, intelligence: $intelligence, adaptability: $adaptability, description: $description)';
   }
 
   @override
@@ -209,8 +209,8 @@ class _$CatEntityImpl extends _CatEntity {
             (identical(other.lifespan, lifespan) ||
                 other.lifespan == lifespan) &&
             (identical(other.country, country) || other.country == country) &&
-            (identical(other.imageRef, imageRef) ||
-                other.imageRef == imageRef) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
             (identical(other.catBreed, catBreed) ||
                 other.catBreed == catBreed) &&
             (identical(other.intelligence, intelligence) ||
@@ -222,7 +222,7 @@ class _$CatEntityImpl extends _CatEntity {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, lifespan, country, imageRef,
+  int get hashCode => Object.hash(runtimeType, lifespan, country, imageUrl,
       catBreed, intelligence, adaptability, description);
 
   @JsonKey(ignore: true)
@@ -236,7 +236,7 @@ abstract class _CatEntity extends CatEntity {
   const factory _CatEntity(
       {required final String lifespan,
       required final String country,
-      required final String imageRef,
+      required final String imageUrl,
       required final String catBreed,
       required final int intelligence,
       required final int adaptability,
@@ -248,7 +248,7 @@ abstract class _CatEntity extends CatEntity {
   @override
   String get country;
   @override
-  String get imageRef;
+  String get imageUrl;
   @override
   String get catBreed;
   @override
