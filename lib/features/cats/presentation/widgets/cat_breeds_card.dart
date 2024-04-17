@@ -34,7 +34,10 @@ class CatBreedCard extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           ListTile(
-            title: Text(cat.catBreed),
+            title: Text(
+              cat.catBreed,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
             subtitle: Text("${cat.country} \n${cat.intelligence}"),
             trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {
