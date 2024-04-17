@@ -1,4 +1,3 @@
-import 'package:cat_breeds/features/cats/data/models/cat_dto.dart';
 import 'package:cat_breeds/features/cats/domain/entities/cat_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
