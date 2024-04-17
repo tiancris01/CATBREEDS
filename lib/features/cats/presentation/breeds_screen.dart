@@ -43,23 +43,42 @@ class _BreedsScreenState extends ConsumerState<BreedsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cat Breeds'),
+        centerTitle: true,
       ),
+      // drawer: ,
       body: Column(
         children: [
           Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: IconButton(
-                icon: const Icon(Icons.search),
-                onPressed: () {
-                  final search = ref.read(catRepositoryImplProvider);
-                  showSearch(
-                    context: context,
-                    delegate: SearchCatsDelegate(
-                      searchCallback: search.searchCats,
-                    ),
-                  );
-                },
-              )),
+            padding: const EdgeInsets.all(16.0),
+            child: InkWell(
+              onTap: () {
+                final search = ref.read(catRepositoryImplProvider);
+                showSearch(
+                  context: context,
+                  delegate: SearchCatsDelegate(
+                    searchCallback: search.searchCats,
+                  ),
+                );
+              },
+              child: Container(
+                width: double.infinity,
+                height: 50,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                alignment: Alignment.centerLeft,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Search...'),
+                    Icon(Icons.search),
+                  ],
+                ),
+              ),
+            ),
+          ),
           cats.state == ConcreteState.loading
               ? Expanded(
                   child: const Center(

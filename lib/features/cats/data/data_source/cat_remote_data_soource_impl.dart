@@ -1,4 +1,5 @@
 import 'package:cat_breeds/features/cats/data/data_source/cat_remote_data_source.dart';
+import 'package:cat_breeds/features/cats/data/models/cat_dto.dart';
 import 'package:cat_breeds/features/cats/domain/entities/cat_entity.dart';
 import 'package:cat_breeds/shared/data/remote/network_service.dart';
 import 'package:cat_breeds/shared/domain/models/paginated_response.dart';
@@ -66,9 +67,10 @@ class CatRemoteDataSourceImpl implements CatRemoteDataSource {
             ),
           );
         }
-        final List<CatEntity> catEntity =
-            (jsonData as List).map((e) => CatEntity.fromJson(e)).toList();
-        return Right(catEntity);
+        final catEntities = (jsonData as List)
+            .map((json) => CatDTO.fromJson(json).toDomain())
+            .toList();
+        return Right(catEntities);
       },
     );
   }
