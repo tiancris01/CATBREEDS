@@ -1,10 +1,14 @@
 import 'package:cat_breeds/app/environments.dart';
 import 'package:cat_breeds/shared/data/remote/network_service.dart';
 import 'package:cat_breeds/shared/domain/models/response.dart' as response;
+import 'package:cat_breeds/shared/exceptions/http_exception.dart';
+import 'package:cat_breeds/shared/mixins/exception_handler_mixin.dart';
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
-class DioNetworkService extends NetworkService {
+class DioNetworkService extends NetworkService with ExceptionHandlerMixin {
   final Dio _dio;
+  final config = Environment.config;
   DioNetworkService({
     required Dio dio,
   }) : _dio = dio {
@@ -16,25 +20,26 @@ class DioNetworkService extends NetworkService {
         headers: headers,
       );
   @override
-  String get baseUrl => Environment.config.baseURL;
+  String get baseUrl => config.baseURL;
 
   @override
   Map<String, Object> get headers => {
         'content-type': 'application/json',
-        'x-api-key': Environment.config.xApiKey,
+        'x-api-key': config.xApiKey,
       };
 
   @override
-  Future<response.Response> get(
-      {required String path, Map<String, dynamic>? queryParameters}) async {
-    final res = await _dio.get(
-      path,
-      queryParameters: queryParameters,
+  Future<Either<AppException, response.Response>> get({
+    required String path,
+    Map<String, dynamic>? queryParameters,
+  }) {
+    final res = handleException(
+      () => _dio.get(
+        path,
+        queryParameters: queryParameters,
+      ),
+      endpoint: path,
     );
-    return response.Response(
-      data: res.data,
-      statusCode: res.statusCode!,
-      statusMessage: res.statusMessage,
-    );
+    return res;
   }
 }

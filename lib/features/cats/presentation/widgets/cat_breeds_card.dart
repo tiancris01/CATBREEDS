@@ -1,5 +1,6 @@
 import 'package:cat_breeds/features/cats/domain/entities/cat_entity.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CatBreedCard extends StatelessWidget {
   const CatBreedCard({
@@ -36,7 +37,7 @@ class CatBreedCard extends StatelessWidget {
             subtitle: Text("${cat.country} \n${cat.intelligence}"),
             trailing: const Icon(Icons.arrow_forward_ios),
             onTap: () {
-              // context.go('/breeds/${cat.id}');
+              context.go('/breeds/breedsDetails', extra: cat);
             },
           ),
         ],

@@ -42,6 +42,7 @@ dependencies:
   dio: ^5.4.3
   dartz: ^0.10.1
   equatable: ^2.0.5
+  animate_do: ^3.3.4
 
 dev_dependencies:
   flutter_test:

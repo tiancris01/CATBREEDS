@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
+CatEntity _$CatEntityFromJson(Map<String, dynamic> json) {
+  return _CatEntity.fromJson(json);
+}
+
 /// @nodoc
 mixin _$CatEntity {
   String get lifespan => throw _privateConstructorUsedError;
@@ -24,6 +28,7 @@ mixin _$CatEntity {
   int get adaptability => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CatEntityCopyWith<CatEntity> get copyWith =>
       throw _privateConstructorUsedError;
@@ -169,7 +174,7 @@ class __$$CatEntityImplCopyWithImpl<$Res>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$CatEntityImpl extends _CatEntity {
   const _$CatEntityImpl(
       {required this.lifespan,
@@ -180,6 +185,9 @@ class _$CatEntityImpl extends _CatEntity {
       required this.adaptability,
       required this.description})
       : super._();
+
+  factory _$CatEntityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CatEntityImplFromJson(json);
 
   @override
   final String lifespan;
@@ -221,6 +229,7 @@ class _$CatEntityImpl extends _CatEntity {
                 other.description == description));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, lifespan, country, imageUrl,
       catBreed, intelligence, adaptability, description);
@@ -230,6 +239,13 @@ class _$CatEntityImpl extends _CatEntity {
   @pragma('vm:prefer-inline')
   _$$CatEntityImplCopyWith<_$CatEntityImpl> get copyWith =>
       __$$CatEntityImplCopyWithImpl<_$CatEntityImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$CatEntityImplToJson(
+      this,
+    );
+  }
 }
 
 abstract class _CatEntity extends CatEntity {
@@ -242,6 +258,9 @@ abstract class _CatEntity extends CatEntity {
       required final int adaptability,
       required final String description}) = _$CatEntityImpl;
   const _CatEntity._() : super._();
+
+  factory _CatEntity.fromJson(Map<String, dynamic> json) =
+      _$CatEntityImpl.fromJson;
 
   @override
   String get lifespan;
