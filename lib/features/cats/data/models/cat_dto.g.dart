@@ -31,7 +31,7 @@ Map<String, dynamic> _$$CatDTOImplToJson(_$CatDTOImpl instance) =>
 
 _$ImageUrlImpl _$$ImageUrlImplFromJson(Map<String, dynamic> json) =>
     _$ImageUrlImpl(
-      json['url'] as String?,
+      url: _urlBanner(json['url']),
     );
 
 Map<String, dynamic> _$$ImageUrlImplToJson(_$ImageUrlImpl instance) =>

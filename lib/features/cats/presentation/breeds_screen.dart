@@ -2,6 +2,7 @@ import 'package:cat_breeds/features/cats/domain/providers/breeds_providers.dart'
 import 'package:cat_breeds/features/cats/presentation/providers/cat_breeds_sate_provider.dart';
 import 'package:cat_breeds/features/cats/presentation/providers/state/cat_breeds_state.dart';
 import 'package:cat_breeds/features/cats/presentation/widgets/cat_breeds_card.dart';
+import 'package:cat_breeds/features/cats/presentation/widgets/custom_drawer.dart';
 import 'package:cat_breeds/features/cats/presentation/widgets/delegates/search_cats_delegate.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -45,7 +46,14 @@ class _BreedsScreenState extends ConsumerState<BreedsScreen> {
         title: const Text('Cat Breeds'),
         centerTitle: true,
       ),
-      // drawer: ,
+      drawer: CustomDrawer(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          final notifier = ref.read(catBreedsNotifierProvider.notifier);
+          notifier.fetchCats();
+        },
+        child: const Icon(Icons.refresh),
+      ),
       body: Column(
         children: [
           Padding(

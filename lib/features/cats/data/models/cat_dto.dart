@@ -27,7 +27,7 @@ class CatDTO with _$CatDTO {
       description: entity.description,
       adaptability: entity.adaptability,
       intelligence: entity.intelligence,
-      image: ImageUrl(entity.imageUrl),
+      image: ImageUrl(url: entity.imageUrl),
     );
   }
 
@@ -44,12 +44,17 @@ class CatDTO with _$CatDTO {
   }
 }
 
+String _urlBanner(Object? json) {
+  return (json as String) ??
+      'https://ih1.redbubble.net/image.4905811447.8675/flat,750x,075,f-pad,750x1000,f8f8f8.jpg';
+}
+
 @freezed
 class ImageUrl with _$ImageUrl {
   const ImageUrl._();
-  const factory ImageUrl(
-    String? url,
-  ) = _ImageUrl;
+  const factory ImageUrl({
+    @JsonKey(fromJson: _urlBanner) required String url,
+  }) = _ImageUrl;
 
   factory ImageUrl.fromJson(Map<String, dynamic> json) =>
       _$ImageUrlFromJson(json);
