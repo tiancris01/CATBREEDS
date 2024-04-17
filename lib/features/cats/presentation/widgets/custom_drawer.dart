@@ -1,3 +1,4 @@
+import 'package:cat_breeds/app/gen/assets.gen.dart';
 import 'package:cat_breeds/app/theme/providers/theme_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
@@ -13,15 +14,17 @@ class CustomDrawer extends ConsumerWidget {
     return Drawer(
       child: ListView(
         children: [
-          const DrawerHeader(
+          DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.deepPurpleAccent,
+                image: DecorationImage(
+                  image: AssetImage(AssetsToken.images.drawerImage.path),
+                  fit: BoxFit.cover,
+                ),
               ),
               child: Text(
                 'Cat Breeds',
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
+                  color: Theme.of(context).colorScheme.primary,
                 ),
               )),
           ListTile(

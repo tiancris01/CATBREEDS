@@ -300,7 +300,8 @@ ImageUrl _$ImageUrlFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImageUrl {
-  String? get url => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _urlBanner)
+  String get url => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -313,7 +314,7 @@ abstract class $ImageUrlCopyWith<$Res> {
   factory $ImageUrlCopyWith(ImageUrl value, $Res Function(ImageUrl) then) =
       _$ImageUrlCopyWithImpl<$Res, ImageUrl>;
   @useResult
-  $Res call({String? url});
+  $Res call({@JsonKey(fromJson: _urlBanner) String url});
 }
 
 /// @nodoc
@@ -329,13 +330,13 @@ class _$ImageUrlCopyWithImpl<$Res, $Val extends ImageUrl>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? url = freezed,
+    Object? url = null,
   }) {
     return _then(_value.copyWith(
-      url: freezed == url
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ) as $Val);
   }
 }
@@ -348,7 +349,7 @@ abstract class _$$ImageUrlImplCopyWith<$Res>
       __$$ImageUrlImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? url});
+  $Res call({@JsonKey(fromJson: _urlBanner) String url});
 }
 
 /// @nodoc
@@ -362,13 +363,13 @@ class __$$ImageUrlImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? url = freezed,
+    Object? url = null,
   }) {
     return _then(_$ImageUrlImpl(
-      freezed == url
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
     ));
   }
 }
@@ -376,13 +377,15 @@ class __$$ImageUrlImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ImageUrlImpl extends _ImageUrl {
-  const _$ImageUrlImpl(this.url) : super._();
+  const _$ImageUrlImpl({@JsonKey(fromJson: _urlBanner) required this.url})
+      : super._();
 
   factory _$ImageUrlImpl.fromJson(Map<String, dynamic> json) =>
       _$$ImageUrlImplFromJson(json);
 
   @override
-  final String? url;
+  @JsonKey(fromJson: _urlBanner)
+  final String url;
 
   @override
   String toString() {
@@ -416,14 +419,17 @@ class _$ImageUrlImpl extends _ImageUrl {
 }
 
 abstract class _ImageUrl extends ImageUrl {
-  const factory _ImageUrl(final String? url) = _$ImageUrlImpl;
+  const factory _ImageUrl(
+          {@JsonKey(fromJson: _urlBanner) required final String url}) =
+      _$ImageUrlImpl;
   const _ImageUrl._() : super._();
 
   factory _ImageUrl.fromJson(Map<String, dynamic> json) =
       _$ImageUrlImpl.fromJson;
 
   @override
-  String? get url;
+  @JsonKey(fromJson: _urlBanner)
+  String get url;
   @override
   @JsonKey(ignore: true)
   _$$ImageUrlImplCopyWith<_$ImageUrlImpl> get copyWith =>

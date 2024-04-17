@@ -22,12 +22,16 @@ class $AssetsEnvsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
+  /// File path: assets/images/drawer_image.jpg
+  AssetGenImage get drawerImage =>
+      const AssetGenImage('assets/images/drawer_image.jpg');
+
   /// File path: assets/images/splash_loading.gif
   AssetGenImage get splashLoading =>
       const AssetGenImage('assets/images/splash_loading.gif');
 
   /// List of all assets
-  List<AssetGenImage> get values => [splashLoading];
+  List<AssetGenImage> get values => [drawerImage, splashLoading];
 }
 
 class AssetsToken {
