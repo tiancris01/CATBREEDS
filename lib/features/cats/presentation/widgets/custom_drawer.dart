@@ -1,12 +1,15 @@
+import 'package:cat_breeds/app/theme/providers/theme_provider.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 
-class CustomDrawer extends StatelessWidget {
+class CustomDrawer extends ConsumerWidget {
   const CustomDrawer({
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final brightness = ref.watch(appBrightnessProvider);
     return Drawer(
       child: ListView(
         children: [
@@ -25,12 +28,17 @@ class CustomDrawer extends StatelessWidget {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Theme Mode'),
-                const Icon(Icons.light_mode_outlined),
+                Text(
+                    brightness == Brightness.dark ? 'Light Mode' : 'Dark Mode'),
+                Icon(
+                  brightness == Brightness.dark
+                      ? Icons.light_mode_outlined
+                      : Icons.dark_mode_outlined,
+                ),
               ],
             ),
             onTap: () {
-              Navigator.of(context).pushNamed('/');
+              ref.read(appBrightnessProvider.notifier).toggle();
             },
           ),
         ],

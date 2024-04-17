@@ -47,6 +47,13 @@ class _BreedsScreenState extends ConsumerState<BreedsScreen> {
         centerTitle: true,
       ),
       drawer: CustomDrawer(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          final notifier = ref.read(catBreedsNotifierProvider.notifier);
+          notifier.fetchCats();
+        },
+        child: const Icon(Icons.refresh),
+      ),
       body: Column(
         children: [
           Padding(

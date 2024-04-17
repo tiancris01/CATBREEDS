@@ -59,8 +59,10 @@ class _BreedsDetailsState extends State<BreedsDetails> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(widget.cat.description,
-                        style: const TextStyle(fontSize: 26)),
+                    Text(
+                      widget.cat.description,
+                      style: Theme.of(context).textTheme.titleLarge,
+                    ),
                     const SizedBox(height: 10),
                     Text('Country: ${widget.cat.country}'),
                     const SizedBox(height: 10),
