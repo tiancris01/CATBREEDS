@@ -8,14 +8,14 @@ API: https://api.thecatapi.com/v1/breeds
 
 ### Prerequisites
 
-Ensure you have the following prerequisites installed:
+Asegurate de cumplir con todos los requisitos:
 
 - Flutter SDK: [Installation Guide](https://flutter.dev/docs/get-started/install)
 - Dart SDK: [Installation Guide](https://dart.dev/get-dart)
 
 ### Installation
 
-1. Clone the repository:
+1. Clonar el repositorio:
 
    ```bash
    git clone https://github.com/tiancris01/CATBREEDS.git
@@ -23,7 +23,7 @@ Ensure you have the following prerequisites installed:
 
    ```
 
-2. Install dependencies:
+2. Instalar dependencias:
 
    ```bash
    flutter pub get
