@@ -29,9 +29,3 @@ class CacheFailureException extends Equatable implements AppException {
   @override
   List<Object?> get props => [message, statusCode, identifier];
 }
-
-//  extension
-
-// extension HttpExceptionExtension on AppException {
-//   Left<AppException, Response> get toLeft => Left<AppException, Response>(this);
-// }
