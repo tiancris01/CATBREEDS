@@ -1,16 +1,44 @@
-# cat_breeds
+# Cat Breeds
 
-A new Flutter project.
+Este proyecto es una prueba tecnica que pretende cargar las razas de diferentes gatos de una la correspondiente Api
+
+API: https://api.thecatapi.com/v1/breeds
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Prerequisites
 
-A few resources to get you started if this is your first Flutter project:
+Ensure you have the following prerequisites installed:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Flutter SDK: [Installation Guide](https://flutter.dev/docs/get-started/install)
+- Dart SDK: [Installation Guide](https://dart.dev/get-dart)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/tiancris01/CATBREEDS.git
+   cd GITHUB_API
+
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   flutter pub get
+
+   ```
+
+3. run build_runner:
+   ```bash
+   flutter pub run build_runner build --delete-conflicting-outputs
+   ```
+
+## Usage
+
+Run the Flutter project:
+
+```bash
+   flutter run
+```
